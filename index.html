@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UHV-2 Unit-05 - Questions</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+
+        header {
+            background-color: #0077cc;
+            color: white;
+            padding: 0.9rem 0.5rem;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 1.8rem auto;
+            padding: 1.1rem;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+            page-break-after: always;
+            border-radius: 6px;
+        }
+
+        h2 {
+            color: #0077cc;
+            margin: 0 0 0.9rem;
+            font-size: 1.55rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #444;
+            margin: 1.1rem 0 0.55rem;
+            font-size: 1.28rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 0.55rem 0;
+        }
+
+        ul, ol {
+            margin: 0.55rem 0;
+            padding-left: 1.3rem;
+        }
+
+        li {
+            margin-bottom: 0.35rem;
+        }
+
+        li > ul, li > ol {
+            margin: 0.35rem 0;
+            padding-left: 1.2rem;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 11px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            margin: 0.7rem 0;
+            border: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.25rem;
+                padding: 0.75rem 0.5rem;
+            }
+
+            .container {
+                margin: 1.2rem auto;
+                padding: 0.95rem;
+                border-radius: 5px;
+            }
+
+            h2 {
+                font-size: 1.35rem;
+                margin-bottom: 0.8rem;
+            }
+
+            h3 {
+                font-size: 1.15rem;
+                margin: 0.95rem 0 0.45rem;
+            }
+
+            ul, ol {
+                padding-left: 1rem;
+            }
+
+            li > ul, li > ol {
+                padding-left: 1rem;
+            }
+
+            pre {
+                font-size: 0.82rem;
+                padding: 9px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 1rem auto;
+                padding: 0.85rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            ul, ol {
+                padding-left: 0.9rem;
+            }
+
+            li > ul, li > ol {
+                padding-left: 0.9rem;
+            }
+        }
+
+        @media print {
+            .container {
+                page-break-after: always;
+                box-shadow: none;
+                margin: 0;
+                padding: 1rem;
+                border-radius: 0;
+            }
+
+            header {
+                background: #0077cc !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+
+        ol.roman {
+            counter-reset: item;
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0.55rem 0;
+        }
+
+        ol.roman > li {
+            counter-increment: item;
+            position: relative;
+            padding-left: 1.6rem;
+            margin-bottom: 0.35rem;
+        }
+
+        ol.roman > li::before {
+            content: counter(item, lower-roman) ") ";
+            position: absolute;
+            left: 0;
+            color: #0077cc;
+            font-weight: bold;
+            width: 1.4rem;
+            text-align: left;
+            font-size: 0.94em;
+            top: 0;
+        }
+
+        ol.roman ol {
+            counter-reset: subitem;
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 0.3rem;
+        }
+
+        ol.roman ol > li {
+            counter-increment: subitem;
+            position: relative;
+            padding-left: 1.7rem;
+            margin-bottom: 0.25rem;
+        }
+
+        ol.roman ol > li::before {
+            content: "(" counter(subitem, lower-alpha) ") ";
+            position: absolute;
+            left: 0;
+            color: #0077cc;
+            font-weight: bold;
+            width: 1.5rem;
+            font-size: 0.92em;
+        }
+
+        ol.roman li > ul {
+            margin: 0.35rem 0 0.5rem 1.4rem;
+            padding-left: 0;
+        }
+
+        @media (max-width: 768px) {
+            ol.roman > li {
+                padding-left: 1.5rem;
+            }
+
+            ol.roman > li::before {
+                width: 1.3rem;
+            }
+
+            ol.roman ol > li {
+                padding-left: 1.6rem;
+            }
+
+            ol.roman ol > li::before {
+                width: 1.4rem;
+            }
+
+            ol.roman li > ul {
+                margin-left: 1rem;
+            }
+        }
+
+        .indent-block {
+            margin-left: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .indent-block {
+                margin-left: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .indent-block {
+                margin-left: 0.8rem;
+            }
+        }
+
+        img {
+            display: block;
+            max-width: 58%;
+            height: auto;
+            max-height: 270px;
+            object-fit: contain;
+            margin: 1rem auto;
+            border-radius: 6px;
+            cursor: zoom-in;
+            transition: transform 0.2s ease;
+            border: 1px solid #ddd;
+        }
+
+        img:hover {
+            transform: scale(1.04);
+        }
+
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+            backdrop-filter: blur(6px);
+        }
+
+        #lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #lightbox img {
+            max-width: 88%;
+            max-height: 88%;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.3);
+            transform: scale(0.85);
+            transition: transform 0.3s ease;
+            cursor: zoom-out;
+        }
+
+        #lightbox.active img {
+            transform: scale(1);
+        }
+
+        #image-tip {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 119, 204, 0.96);
+            color: #fff;
+            padding: 0.7rem 1.1rem;
+            border-radius: 6px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease;
+            white-space: nowrap;
+        }
+
+        #image-tip.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 480px) {
+            #image-tip {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+            }
+        }
+    </style>
+      </style>
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ8GK8VNS9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WJ8GK8VNS9');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8311353174841359"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        UHV-2 Unit-05
+    </header>
+
+    <div class="container">
+        <h2>1. Natural acceptance of human values</h2>
+        <h3>Define human values and explain its natural acceptance.</h3>
+        <ul>
+            <li>Values Definition: Principles guiding behavior.</li>
+            <li>Natural Acceptance: Innate embrace without force.</li>
+            <li>Cultural Influence: Shaped by society norms.</li>
+            <li>Socialization Role: Learned through interactions.</li>
+            <li>Psychological Factors: Experiences form beliefs.</li>
+        </ul>
+        <h3>What is the natural acceptance of human values?</h3>
+        <ul>
+            <li>Acceptance Meaning: Unforced agreement with values.</li>
+            <li>Human Principles: Like respect and honesty.</li>
+            <li>Culture Shape: Influences value adoption.</li>
+            <li>Personal Beliefs: Tied to experiences.</li>
+            <li>Society Impact: Promotes ethical living.</li>
+        </ul>
+    </div>
+
+    <header>
+        UHV-2 Unit-05
+    </header>
+
+    <div class="container">
+        <h2>2. Definitiveness of Ethical Human Conduct</h2>
+        <h3>What do you mean by Definitiveness of Ethical Human Conduct?</h3>
+        <ul>
+            <li>Definitiveness Meaning: Clear ethical guidelines.</li>
+            <li>Ethical Conduct: Right actions always.</li>
+            <li>Value Base: From harmony understanding.</li>
+            <li>Human Role: Act responsibly ethically.</li>
+            <li>Order Achieve: Leads to universal good.</li>
+        </ul>
+        <h3>Explain the definitiveness of Ethical Human Conduct.</h3>
+        <ul>
+            <li>Conduct Explanation: Definite right behavior.</li>
+            <li>Ethical Basis: Rooted in natural values.</li>
+            <li>Harmony Link: From self to society.</li>
+            <li>Definite Actions: Guide professional ethics.</li>
+            <li>Universal Apply: For all humans.</li>
+        </ul>
+    </div>
+
+    <header>
+        UHV-2 Unit-05
+    </header>
+
+    <div class="container">
+        <h2>3. Basis for Humanistic Education / Humanistic Constitution / Humanistic Universal Order</h2>
+        <h3>Explain the basis for Humanistic Universal Order.</h3>
+        <ul>
+            <li>Order Basis: Harmony at all levels.</li>
+            <li>Humanistic Focus: Values for well-being.</li>
+            <li>Universal Apply: For all societies.</li>
+            <li>Ethical Conduct: Definite right actions.</li>
+            <li>Transition Strategy: From individual to society.</li>
+        </ul>
+        <h3>Write about the Humanistic Constitution.</h3>
+        <ul>
+            <li>Constitution Meaning: Rules based on values.</li>
+            <li>Humanistic Principles: Promote harmony ethics.</li>
+            <li>Basis Harmony: From natural acceptance.</li>
+            <li>Order Ensure: Universal human good.</li>
+            <li>Education Link: Teach ethical conduct.</li>
+        </ul>
+        <h3>How to right understanding and dilemmas of professional ethics in today's world.</h3>
+        <ul>
+            <li>Right Understanding: Knowledge of harmony.</li>
+            <li>Dilemmas Face: Conflicts in ethics.</li>
+            <li>Resolve Method: Use value base.</li>
+            <li>Professional Apply: In work decisions.</li>
+            <li>Harmony Achieve: Solve modern issues.</li>
+        </ul>
+        <h3>Describe the Vision for the Holistic alternatives.</h3>
+        <ul>
+            <li>Vision Meaning: Complete harmony view.</li>
+            <li>Holistic Alternatives: Ethical options always.</li>
+            <li>Human Order: Universal good focus.</li>
+            <li>Transition Plan: Individual to society.</li>
+            <li>Ethics Apply: In all areas.</li>
+        </ul>
+    </div>
+
+    <header>
+        UHV-2 Unit-05
+    </header>
+
+    <div class="container">
+        <h2>4. Competence in professional ethics (a, b, c)</h2>
+        <h3>What are the professional competences for augmenting universal human order?</h3>
+        <ul>
+            <li>Competence Meaning: Skills for ethics.</li>
+            <li>Augment Order: Promote human good.</li>
+            <li>People Friendly: Systems benefit all.</li>
+            <li>Eco Friendly: Protect environment.</li>
+            <li>Technology Develop: Appropriate ethical tools.</li>
+        </ul>
+        <h3>Describe the concept of professional competence?</h3>
+        <ul>
+            <li>Concept Explanation: Ethical skill use.</li>
+            <li>Universal Order: For human harmony.</li>
+            <li>Identify Scope: People eco systems.</li>
+            <li>Develop Tech: Friendly management patterns.</li>
+            <li>Apply Ethics: In work practices.</li>
+        </ul>
+        <h3>How to identify and develop appropriate technologies for production system.</h3>
+        <ul>
+            <li>Identify Need: For eco friendly.</li>
+            <li>Develop Tech: Ethical patterns use.</li>
+            <li>Production Focus: People benefit systems.</li>
+            <li>Harmony Ensure: With nature.</li>
+            <li>Apply Competence: Professional ethics.</li>
+        </ul>
+        <h3>How to identify the scope and characteristics of people friendly?</h3>
+        <ul>
+            <li>Scope Identify: Benefit all people.</li>
+            <li>Characteristics See: Eco safe traits.</li>
+            <li>Production Systems: Friendly to humans.</li>
+            <li>Develop Patterns: Management ethical.</li>
+            <li>Order Augment: Universal human good.</li>
+        </ul>
+    </div>
+
+    <header>
+        UHV-2 Unit-05
+    </header>
+
+    <div class="container">
+        <h2>5. Case studies of holistic technologies, management models and production systems</h2>
+        <h3>Case studies of typical holistic technologies, management models and production systems.</h3>
+        <ul>
+            <li>Holistic Tech: Eco friendly examples.</li>
+            <li>Management Models: Ethical patterns.</li>
+            <li>Production Systems: People benefit.</li>
+            <li>Case Discuss: Real life applications.</li>
+            <li>Learn Ethics: From studies.</li>
+        </ul>
+    </div>
+
+    <header>
+        UHV-2 Unit-05
+    </header>
+
+    <div class="container">
+        <h2>6. Strategy for transition to Universal Human Order</h2>
+        <h3>Explain the role of managers for transition from the present state to Universal Human Order.</h3>
+        <ul>
+            <li>Manager Role: Guide ethical change.</li>
+            <li>Transition Strategy: From now to order.</li>
+            <li>Individual Level: Responsible actions.</li>
+            <li>Society Level: Enrich institutions.</li>
+            <li>Harmony Achieve: Universal good.</li>
+        </ul>
+        <h3>What are the socially and ecologically responsible engineers?</h3>
+        <ul>
+            <li>Responsible Meaning: Ethical in work.</li>
+            <li>Social Focus: Benefit people.</li>
+            <li>Eco Care: Protect nature.</li>
+            <li>Individual Level: As managers technologists.</li>
+            <li>Order Transition: To universal harmony.</li>
+        </ul>
+        <h3>Discuss the different strategies for transition from the present state to Universal Human Order.</h3>
+        <ul>
+            <li>Strategies Discuss: Plans for change.</li>
+            <li>Individual Start: Personal responsibility.</li>
+            <li>Society Build: Enrich organizations.</li>
+            <li>Ethics Apply: In all areas.</li>
+            <li>Harmony Reach: Universal order.</li>
+        </ul>
+    </div>
+
+    <div id="lightbox">
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        document.querySelectorAll("img").forEach(img => {
+            img.addEventListener("click", () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add("active");
+            });
+        });
+
+        lightbox.addEventListener("click", () => {
+            lightbox.classList.remove("active");
+        });
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const tip = document.getElementById("image-tip");
+            tip.classList.add("show");
+            setTimeout(() => tip.classList.remove("show"), 5000);
+        });
+    </script>
+
+</body>
+
+</html>
