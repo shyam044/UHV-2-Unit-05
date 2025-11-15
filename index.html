@@ -551,7 +551,95 @@
             setTimeout(() => tip.classList.remove("show"), 5000);
         });
     </script>
+ <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="-arF0pDmRQdb3kKUsnJ4N";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+<!-- Chat with AI Animated Bubble (First 5 sec only) -->
+<!-- Chat with AI Bubble (Top-right, Down Arrow, 5 sec only) -->
+<style>
+  #chat-ai-bubble {
+    position: fixed;
+    right: 20px;
+    bottom: 90px;           /* MOVED UP from bottom (was 30px → now 90px) */
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.5s ease;
+  }
 
+  #chat-ai-bubble.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .chat-bubble {
+    background: #0077cc;
+    color: white;
+    padding: 11px 17px;
+    border-radius: 22px;
+    font-size: 0.94rem;
+    font-weight: 600;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 119, 204, 0.35);
+    animation: floatPulse 1.8s infinite ease-in-out;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  /* DOWNWARD ARROW (tail) */
+  .chat-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;                    /* Below the bubble */
+    right: 18px;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 11px solid #0077cc;   /* Arrow points DOWN */
+  }
+
+  @keyframes floatPulse {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50%      { transform: translateY(-4px) scale(1.03); }
+  }
+
+  .chat-bubble:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 119, 204, 0.45);
+  }
+</style>
+
+<div id="chat-ai-bubble">
+  <div class="chat-bubble">Chat with AI</div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const bubble = document.getElementById('chat-ai-bubble');
+
+    // Show with smooth slide + float animation
+    setTimeout(() => {
+      bubble.classList.add('show');
+    }, 400);
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+      bubble.classList.remove('show');
+      setTimeout(() => bubble.remove(), 600);
+    }, 5000);
+
+    // Click → Open real Chatbase
+    bubble.addEventListener('click', () => {
+      if (window.chatbase && typeof window.chatbase === 'function') {
+        window.chatbase('open');
+      }
+    });
+  });
+</script>
+<!-- End Chat with AI Bubble -->
 </body>
+
 
 </html>
